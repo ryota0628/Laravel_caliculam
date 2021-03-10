@@ -28,4 +28,12 @@ class PostController extends Controller
     {
          return view('show')->with(['post' => $post]);
     }
+    
+    /**
+    投稿画面作成
+    */
+    public function create()
+    {
+    return view('create');
+    }
 }
