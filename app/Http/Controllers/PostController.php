@@ -36,9 +36,16 @@ class PostController extends Controller
     
     public function update(PostRequest $request, Post $post)
     {
-    $input_post = $request['post'];
+    $input_post = $request['post'];//edit.blade.phpのform actionのurlをweb.phpでルーティングして、このupdate関数が起動するので、postはedit.blade.phpのpostキーに対応!
+                                   //よって、storeメソッドのpostキーとは区別される
     $post->fill($input_post)->save();
 
     return redirect('/posts/' . $post->id);
+    }
+    
+    public function delete(Post $post)
+    {
+    $post->delete();
+    return redirect('/');
     }
 }
